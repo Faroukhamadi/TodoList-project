@@ -10,12 +10,8 @@ export default function addProject() {
     const listItem2 = document.createElement('li');
     const addBtn = document.createElement('button');
 
-
-
-
-
     cancelBtn.addEventListener('click', e => {
-        sideBarList.insertAdjacentHTML('beforeend', '<li id="addProject" class="togglable"><a href="#"><span class="plus-sgn">+</span> Add Project</a></li>');
+        sideBarList.appendChild(addProjectBtn);
         sideBarList.removeChild(listItem1);
         sideBarList.removeChild(listItem2);
         console.log(addProjectBtn);
@@ -25,7 +21,7 @@ export default function addProject() {
         if (inputField.value.length === 0) {
             alert('Enter A Project Name!');
         } else {
-            sideBarList.insertAdjacentHTML('beforeend', '<li id="addProject" class="togglable"><a href="#"><span class="plus-sgn">+</span> Add Project</a></li>');
+
             sideBarList.removeChild(listItem1);
             sideBarList.removeChild(listItem2);
             const listItemN = document.createElement('li');
@@ -40,7 +36,9 @@ export default function addProject() {
             sideBarList.appendChild(listItemN);
             listItemN.appendChild(checkListImg);
             listItemN.appendChild(text);
+            sideBarList.appendChild(addProjectBtn);
             console.log(addProjectBtn);
+
         }
     })
 
@@ -60,4 +58,5 @@ export default function addProject() {
         addProjectBtn.remove();
 
     })
+
 }
