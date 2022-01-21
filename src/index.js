@@ -1,5 +1,3 @@
-import generateTodayPage from './todayModule';
-import generateWeekPage from './weekModule';
+import generateDOM from "./DOM";
 
-
-generateWeekPage();
+generateDOM();
