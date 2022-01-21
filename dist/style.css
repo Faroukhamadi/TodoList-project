@@ -76,9 +76,7 @@ button:hover {
     background-color: rgb(50, 122, 238, 0.7);
 }
 
-#gym {
-    width: 15%;
-    height: 80%;
+#gym, #today, #week, #month {
     vertical-align: middle;
     margin-right: 5%;
 }
@@ -88,25 +86,26 @@ button:hover {
     font-size: large;
     font-weight: bolder;
     display: flex;
-    justify-content: center;
-    background-color: rgb(230, 224, 224);
+    justify-content: left;
+    background-color: rgb(235, 235, 235);
     width: 20%;
     height: 80%;
+    flex-direction: column;
 }
 
 .side-bar ul {
-    
     display: flex;
     flex-direction: column;
-    margin-left: 10%;
+    margin-left: 0%;
     list-style: none;
     margin-top: 5%;
+    margin-left: 10%;
 }
 
 .side-bar ul li {
     margin-bottom: 20px;
     display: inline;
-    
+    cursor: pointer;
 }
 
 .side-bar ul a {
