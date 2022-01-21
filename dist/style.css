@@ -4,13 +4,14 @@
 html, body {
     height: 100%;
     min-height: 100%;
+    display: inline;
+    
 }
 
 * {
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
-    /* background-color: #24252A; */
 }
 
 .nav-bar {
@@ -90,7 +91,7 @@ button:hover {
     justify-content: left;
     background-color: rgb(235, 235, 235);
     width: 20%;
-    height: 80%;
+    height: 100%;
     flex-direction: column;
 }
 
@@ -127,11 +128,35 @@ button:hover {
     margin-bottom: 20px;
 }
 
+.container {
+    display: flex;
+    justify-content: space-between;
+    height: 80%;
+}
+
+.task-container {
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+}
+.task-container h1 {
+    margin-bottom: 0%;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.task-container li {
+    margin: 3% 10%;
+    list-style: none;
+    cursor: pointer;
+}
+
+
 #addPr {
     margin-left: 3%;
 }
 
-#plus-sgn {
+.plus-sgn {
     font-weight: 900;
     font-size: 30px;
     vertical-align: middle;
@@ -139,6 +164,7 @@ button:hover {
 
 #copyright {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     color: #edf0f1;
