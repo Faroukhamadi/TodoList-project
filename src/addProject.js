@@ -17,14 +17,12 @@ export default function addProject() {
         sideBarList.appendChild(addProjectBtn);
         sideBarList.removeChild(listItem1);
         sideBarList.removeChild(listItem2);
-        console.log(addProjectBtn);
     })
 
     addBtn.addEventListener('click', e => {
         if (inputField.value.length === 0) {
             alert('Enter A Project Name!');
         } else {
-
             sideBarList.removeChild(listItem1);
             sideBarList.removeChild(listItem2);
             const listItemN = document.createElement('li');
@@ -36,18 +34,13 @@ export default function addProject() {
             checkListImg.id = 'list';
             text.textContent = inputField.value;
             projects.push(inputField.value);
-            console.log(projects);
             text.href = '#';
             sideBarList.appendChild(listItemN);
             listItemN.appendChild(checkListImg);
             listItemN.appendChild(text);
             sideBarList.appendChild(addProjectBtn);
             let togglable = document.querySelectorAll('.togglable');
-            for (const element of togglable) {
-                console.log(element.textContent);
-            }
             for (let i = 0; i < projects.length; i++) {
-                console.log('This is projects[', i, ']', projects[i]);
                 togglable[i + 4].addEventListener('click', e => {
                     removeChildren(taskContainer);
                     const title = document.createElement('h1');
@@ -68,7 +61,7 @@ export default function addProject() {
         if (projects.length >= 5) {
             alert(`Limit Exceeded.   Edit or Delete an existing element`);
         } else {
-            console.log(`I'm getting clicked.`);
+
             addBtn.id = 'add-btn';
             cancelBtn.id = 'cancel-btn';
             inputField.placeholder = 'Project Name';

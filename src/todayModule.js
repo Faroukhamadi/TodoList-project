@@ -7,6 +7,7 @@ function autoGenerateTodayPage() {
     removeChildren(taskContainer);
     const title = document.createElement('h1');
     const taskList = document.createElement('ul');
+    taskList.id = 'task-list';
     title.textContent = 'Today';
     taskContainer.appendChild(title);
     taskContainer.appendChild(taskList);
@@ -20,6 +21,7 @@ function generateTodayPage() {
         removeChildren(taskContainer);
         const title = document.createElement('h1');
         const taskList = document.createElement('ul');
+        taskList.id = 'task-list';
         title.textContent = 'Today';
         taskContainer.appendChild(title);
         taskContainer.appendChild(taskList);
