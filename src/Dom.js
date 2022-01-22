@@ -4,6 +4,7 @@ import generateMonthPage from "./monthModule";
 import { generateTodayPage, autoGenerateTodayPage } from "./todayModule";
 import generateWeekPage from "./weekModule";
 import addProject from "./addProject";
+import addTask from "./addTask";
 
 export default function generateDOM() {
     const taskContainer = document.querySelector('.task-container');
@@ -15,4 +16,5 @@ export default function generateDOM() {
     generateWeekPage();
     generateMonthPage();
     addProject();
+    addTask();
 }
