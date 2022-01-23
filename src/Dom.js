@@ -10,9 +10,7 @@ export default function generateDOM() {
   const taskContainer = document.querySelector('.task-container');
   if (taskContainer.innerHTML === '') {
     autoGenerateTodayPage();
-    console.log("Hey i'm executing");
   }
-  console.log("Hey no!! i'm executing");
   generateGymPage();
   generateTodayPage();
   generateWeekPage();

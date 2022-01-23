@@ -58,18 +58,33 @@ export default function addTask() {
       listItemN.appendChild(text);
       listItemN.appendChild(remove);
       taskList.appendChild(addTaskBtn);
-      let checkButtons = document.querySelectorAll('.checkbox-round');
-      for (let i = 0; i < checkButtons.length; i++) {
-        if (
-          checkButtons[i].parentNode &&
-          checkButtons[i].parentNode !== undefined
-        ) {
-          checkButtons[i].addEventListener('click', () => {
-            checkButtons[i].parentNode.remove();
-            tasks.splice(i, 1);
-          });
+      (function () {
+        let checkButtons = document.querySelectorAll('.checkbox-round');
+        for (let i = 0; i < checkButtons.length; i++) {
+          if (
+            checkButtons[i].parentNode &&
+            checkButtons[i].parentNode !== undefined
+          ) {
+            checkButtons[i].addEventListener('click', () => {
+              checkButtons[i].parentNode.remove();
+              tasks.splice(i, 1);
+            });
+          }
         }
-      }
+        for (let i = 0; i < checkButtons.length; i++) {
+          let flag = false;
+          for (let j = 0; j < tasks.length; j++) {
+            if (checkButtons[i].parentNode.textContent === tasks[j]) {
+              flag = true;
+              break;
+            }
+          }
+
+          if (flag === false) {
+            tasks.push(checkButtons[i].parentNode.textContent);
+          }
+        }
+      })();
     }
   });
 }
