@@ -1,5 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap');
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+:root {
+  --date-background-color: white;
+}
 
 html,
 body {
@@ -53,14 +64,14 @@ nav {
 
 .nav-bar li {
   display: inline-block;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #edf0f1;
   padding: 0px 20px;
   background-color: inherit;
 }
 
 .nav-bar button {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   margin-left: 20px;
   cursor: pointer;
   color: #edf0f1;
@@ -86,7 +97,7 @@ button:hover {
 }
 
 .side-bar {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: large;
   font-weight: bold;
   display: flex;
@@ -114,10 +125,12 @@ button:hover {
 .togglable:hover {
   border-radius: 7px;
   background-color: rgb(216, 216, 216);
+  --date-background-color: rgb(216, 216, 216);
 }
 
 .togglable:active {
   background-color: rgb(221, 221, 221);
+  --date-background-color: rgb(221, 221, 221);
 }
 
 .task-container .togglable {
@@ -137,7 +150,7 @@ button:hover {
 }
 
 .side-bar h2 {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   margin-bottom: 20px;
 }
 
@@ -148,7 +161,7 @@ button:hover {
 }
 
 .task-container {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: rgb(255, 255, 255);
   width: 80%;
 }
@@ -178,7 +191,7 @@ button:hover {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #edf0f1;
   background-color: rgb(31, 25, 25);
   justify-content: center;
@@ -186,7 +199,7 @@ button:hover {
 }
 
 li input {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 
   width: 100%;
   padding: 3%;
@@ -195,7 +208,7 @@ li input {
 }
 
 li button {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   width: 50%;
   padding: 2%;
   border-radius: 3px;
@@ -214,13 +227,21 @@ li button {
 }
 
 .checkbox-round {
-  margin-top: auto;
-  width: 10px;
-  height: 20px;
-  margin-right: 10%;
+  margin: auto auto;
+  transform: scale(1.2);
+  width: fit-content;
+  margin-left: 2%;
 }
 
 .togglable.checkBox {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.date {
+  background-color: var(--date-background-color);
+  width: 31.3%;
+  margin-left: auto;
+  height: 200%;
 }

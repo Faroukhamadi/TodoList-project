@@ -1,5 +1,5 @@
 import removeChildren from './delChildren';
-import { addDays, startOfDay } from 'date-fns';
+import { format, add } from 'date-fns';
 
 export default function addTask() {
   const togglable = document.querySelectorAll('.togglable');
@@ -48,6 +48,16 @@ export default function addTask() {
       const listItemN = document.createElement('li');
       const text = document.createElement('a');
       const remove = document.createElement('input');
+      const date = document.createElement('input');
+      date.type = 'date';
+      date.className = 'date';
+      date.name = 'task-date';
+      let today = format(new Date(), 'yyyy-MM-dd');
+      let nextYear = format(add(new Date(), { years: 1 }), 'yyyy-MM-dd');
+      date.value = today;
+      date.min = today;
+      date.max = nextYear;
+
       remove.type = 'checkbox';
       remove.className = 'checkbox-round';
       listItemN.classList = 'togglable checkBox';
@@ -57,7 +67,9 @@ export default function addTask() {
       taskList.appendChild(listItemN);
       listItemN.appendChild(text);
       listItemN.appendChild(remove);
+      listItemN.appendChild(date);
       taskList.appendChild(addTaskBtn);
+
       (function () {
         let checkButtons = document.querySelectorAll('.checkbox-round');
         for (let i = 0; i < checkButtons.length; i++) {
