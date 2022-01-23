@@ -212,3 +212,15 @@ li button {
 #cancel-btn {
   background-color: rgb(231, 161, 161);
 }
+
+.checkbox-round {
+  margin-top: auto;
+  width: 10px;
+  height: 20px;
+  margin-right: 10%;
+}
+
+.togglable.checkBox {
+  display: flex;
+  justify-content: space-between;
+}

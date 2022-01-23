@@ -1,43 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToDoList</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="nav-bar">
-        <img src="logo.png" alt="logo">
-        <nav>
-            <ul>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </nav>
-        <a class="cta" href="#"><button>Contact</button></a>
+      <img src="logo.png" alt="logo" />
+      <nav>
+        <ul>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="#"><button>Contact</button></a>
     </div>
     <div class="container">
-        <div class="side-bar">
-            <ul id="sb-list">
-                <li class="togglable" id="gym-btn"><img src="gym.png" alt="gym" id="gym"><a href="#">Gym</a></li>
-                <li class="togglable" id="today-btn"><img src="today.png" alt="calendar" id="today"> <a href="#">Today</a></li>
-                <li class="togglable" id="week-btn"><img src="week.png" alt="calendar" id="week"><a href="#">This Week</a></li>
-                <li class="togglable" id="month-btn"><img src="month.png" alt="calendar" id="month"> <a href="#">This Month</a></li>
-                <h2>Projects : </h2>
-                <li id="addProject" class="togglable"><a href="#"><span class="plus-sgn">+</span> Add Project</a></li> 
-            </ul>
-        </div>
-        <div class="task-container">
-        </div>
+      <div class="side-bar">
+        <ul id="sb-list">
+          <li class="togglable" id="gym-btn">
+            <img src="gym.png" alt="gym" id="gym" /><a href="#">Gym</a>
+          </li>
+          <li class="togglable" id="today-btn">
+            <img src="today.png" alt="calendar" id="today" />
+            <a href="#">Today</a>
+          </li>
+          <li class="togglable" id="week-btn">
+            <img src="week.png" alt="calendar" id="week" /><a href="#"
+              >This Week</a
+            >
+          </li>
+          <li class="togglable" id="month-btn">
+            <img src="month.png" alt="calendar" id="month" />
+            <a href="#">This Month</a>
+          </li>
+          <h2>Projects :</h2>
+          <li id="addProject" class="togglable">
+            <a href="#"><span class="plus-sgn">+</span> Add Project</a>
+          </li>
+        </ul>
+      </div>
+      <div class="task-container"></div>
     </div>
     <div class="footer">
-        <p id="copyright">Copyright © 2022 FaroukHamadi</p>
+      <p id="copyright">Copyright © 2022 Farouk Hamadi</p>
     </div>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
 
 <!-- When I generate the page at first the  -->
