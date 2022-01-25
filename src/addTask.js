@@ -2,6 +2,7 @@ import removeChildren from './delChildren';
 import { format, add } from 'date-fns';
 
 export default function addTask() {
+  let valueCopy = [];
   const togglable = document.querySelectorAll('.togglable');
   const cancelBtn = document.createElement('button');
   const addBtn = document.createElement('button');
@@ -12,7 +13,7 @@ export default function addTask() {
   const addTaskBtn = togglable[togglable.length - 1];
   const taskList = document.getElementById('task-list');
   let tasks = [];
-
+  let count = 0;
   addTaskBtn.addEventListener('click', (e) => {
     if (tasks.length >= 5) {
       alert(`Limit Exceeded.   Edit or Delete an existing element`);
@@ -40,63 +41,79 @@ export default function addTask() {
   });
 
   addBtn.addEventListener('click', (e) => {
+    count++;
     if (inputField.value.length === 0) {
-      alert('Enter A Project Name!');
+      alert('Enter A Task Name!');
     } else {
-      taskList.removeChild(listItem1);
-      taskList.removeChild(listItem2);
+      const date = document.createElement('input');
       const listItemN = document.createElement('li');
       const text = document.createElement('a');
-      const remove = document.createElement('input');
-      const date = document.createElement('input');
-      date.type = 'date';
-      date.className = 'date';
-      date.name = 'task-date';
-      let today = format(new Date(), 'yyyy-MM-dd');
-      let nextYear = format(add(new Date(), { years: 1 }), 'yyyy-MM-dd');
-      date.value = today;
-      date.min = today;
-      date.max = nextYear;
+      text.className = 'task-name-class';
+      let list = document.querySelectorAll('.task-name-class');
+      let nodeListCopy = Array.from(list);
+      let names = nodeListCopy.map((el) => el.textContent);
+      if (names.findIndex((name) => name === inputField.value) !== -1) {
+        alert('Duplicate task names');
+      } else {
+        const remove = document.createElement('input');
+        taskList.removeChild(listItem1);
+        taskList.removeChild(listItem2);
+        date.type = 'date';
+        date.className = 'date';
+        date.name = 'task-date';
+        let today = format(new Date(), 'yyyy-MM-dd');
+        let nextYear = format(add(new Date(), { years: 1 }), 'yyyy-MM-dd');
+        date.value = today;
+        date.min = today;
+        date.max = nextYear;
 
-      remove.type = 'checkbox';
-      remove.className = 'checkbox-round';
-      listItemN.classList = 'togglable checkBox';
-      text.textContent = inputField.value;
-      tasks.push(inputField.value);
-      text.href = '#';
-      taskList.appendChild(listItemN);
-      listItemN.appendChild(text);
-      listItemN.appendChild(remove);
-      listItemN.appendChild(date);
-      taskList.appendChild(addTaskBtn);
+        date.onchange = (e) => {
+          valueCopy.push({ taskName: inputField.value, date: e.target.value });
+          console.log(valueCopy);
+        };
 
-      (function () {
-        let checkButtons = document.querySelectorAll('.checkbox-round');
-        for (let i = 0; i < checkButtons.length; i++) {
-          if (
-            checkButtons[i].parentNode &&
-            checkButtons[i].parentNode !== undefined
-          ) {
-            checkButtons[i].addEventListener('click', () => {
-              checkButtons[i].parentNode.remove();
-              tasks.splice(i, 1);
-            });
-          }
-        }
-        for (let i = 0; i < checkButtons.length; i++) {
-          let flag = false;
-          for (let j = 0; j < tasks.length; j++) {
-            if (checkButtons[i].parentNode.textContent === tasks[j]) {
-              flag = true;
-              break;
+        remove.type = 'checkbox';
+        remove.className = 'checkbox-round';
+        listItemN.classList = 'togglable checkBox';
+        text.textContent = inputField.value;
+        tasks.push(inputField.value);
+        localStorage.setItem(`task${count}`, inputField.value);
+        text.href = '#';
+        taskList.appendChild(listItemN);
+        listItemN.appendChild(text);
+        listItemN.appendChild(remove);
+        listItemN.appendChild(date);
+        taskList.appendChild(addTaskBtn);
+
+        (function () {
+          let checkButtons = document.querySelectorAll('.checkbox-round');
+          for (let i = 0; i < checkButtons.length; i++) {
+            if (
+              checkButtons[i].parentNode &&
+              checkButtons[i].parentNode !== undefined
+            ) {
+              checkButtons[i].addEventListener('click', () => {
+                checkButtons[i].parentNode.remove();
+                tasks.splice(i, 1);
+                // console.log(tasks);
+              });
             }
           }
+          for (let i = 0; i < checkButtons.length; i++) {
+            let flag = false;
+            for (let j = 0; j < tasks.length; j++) {
+              if (checkButtons[i].parentNode.textContent === tasks[j]) {
+                flag = true;
+                break;
+              }
+            }
 
-          if (flag === false) {
-            tasks.push(checkButtons[i].parentNode.textContent);
+            if (flag === false) {
+              tasks.push(checkButtons[i].parentNode.textContent);
+            }
           }
-        }
-      })();
+        })();
+      }
     }
   });
 }

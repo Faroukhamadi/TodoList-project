@@ -1,3 +1,6 @@
-import generateDOM from "./DOM";
+import generateDOM from './DOM';
+import StorageVerification from './storage';
+
+StorageVerification();
 
 generateDOM();

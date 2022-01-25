@@ -134,8 +134,8 @@ button:hover {
 }
 
 .task-container .togglable {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .task-container a {
@@ -172,7 +172,7 @@ button:hover {
 }
 
 .task-container li {
-  margin: 3% 10%;
+  margin: 2% 10%;
   list-style: none;
   cursor: pointer;
 }
@@ -200,11 +200,13 @@ button:hover {
 
 li input {
   font-family: 'Montserrat', sans-serif;
-
   width: 100%;
-  padding: 3%;
   border-radius: 4px;
   border: none;
+}
+
+li input:not(.checkbox-round):not(.date) {
+  padding: 3%;
 }
 
 li button {
@@ -243,5 +245,5 @@ li button {
   background-color: var(--date-background-color);
   width: 31.3%;
   margin-left: auto;
-  height: 200%;
+  height: 100%;
 }
