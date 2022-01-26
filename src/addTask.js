@@ -70,10 +70,22 @@ export default function addTask() {
         date.max = nextYear;
 
         date.onchange = (e) => {
-          valueCopy.push({
-            taskName: date.previousElementSibling.previousElementSibling.text,
-            date: e.target.value,
-          });
+          const existingValue = valueCopy.find(
+            ({ taskName }) =>
+              taskName ===
+              date.previousElementSibling.previousElementSibling.text
+          );
+          if (existingValue === undefined) {
+            valueCopy.push({
+              taskName: date.previousElementSibling.previousElementSibling.text,
+              date: e.target.value,
+            });
+          } else {
+            const index = valueCopy.findIndex((object) => {
+              return object.taskName === existingValue.taskName;
+            });
+            valueCopy[index].date = e.target.value;
+          }
           console.log(valueCopy);
         };
         remove.type = 'checkbox';
