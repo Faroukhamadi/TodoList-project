@@ -12,6 +12,7 @@ export default function addTask() {
   const taskContainer = document.querySelector('.task-container');
   const addTaskBtn = togglable[togglable.length - 1];
   const taskList = document.getElementById('task-list');
+  let list = document.getElementsByClassName('task-name-class');
   let tasks = [];
   let count = 0;
   addTaskBtn.addEventListener('click', (e) => {
@@ -49,9 +50,10 @@ export default function addTask() {
       const listItemN = document.createElement('li');
       const text = document.createElement('a');
       text.className = 'task-name-class';
-      let list = document.querySelectorAll('.task-name-class');
       let nodeListCopy = Array.from(list);
       let names = nodeListCopy.map((el) => el.textContent);
+      console.log(nodeListCopy.map((el) => el.textContent));
+      console.log(`names after declaration${names}`);
       if (names.findIndex((name) => name === inputField.value) !== -1) {
         alert('Duplicate task names');
       } else {
@@ -68,10 +70,12 @@ export default function addTask() {
         date.max = nextYear;
 
         date.onchange = (e) => {
-          valueCopy.push({ taskName: inputField.value, date: e.target.value });
+          valueCopy.push({
+            taskName: date.previousElementSibling.previousElementSibling.text,
+            date: e.target.value,
+          });
           console.log(valueCopy);
         };
-
         remove.type = 'checkbox';
         remove.className = 'checkbox-round';
         listItemN.classList = 'togglable checkBox';
@@ -95,7 +99,6 @@ export default function addTask() {
               checkButtons[i].addEventListener('click', () => {
                 checkButtons[i].parentNode.remove();
                 tasks.splice(i, 1);
-                // console.log(tasks);
               });
             }
           }
