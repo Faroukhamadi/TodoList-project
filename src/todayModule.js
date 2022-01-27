@@ -1,3 +1,4 @@
+import addTask from './addTask';
 import removeChildren from './delChildren';
 
 function autoGenerateTodayPage() {
@@ -11,10 +12,16 @@ function autoGenerateTodayPage() {
   title.textContent = 'Today';
   taskContainer.appendChild(title);
   taskContainer.appendChild(taskList);
-  taskList.insertAdjacentHTML(
-    'afterbegin',
-    `<li class="togglable"><span class="plus-sgn">+</span> Add Task</li>`
-  );
+
+  const togglable = document.createElement('li');
+  const span = document.createElement('span');
+  togglable.className = 'togglable';
+  span.className = 'plus-sgn';
+  span.textContent = '+';
+  togglable.appendChild(span);
+  togglable.innerHTML += 'Add Task';
+  taskList.appendChild(togglable);
+  addTask();
 }
 
 function generateTodayPage() {
@@ -28,10 +35,16 @@ function generateTodayPage() {
     title.textContent = 'Today';
     taskContainer.appendChild(title);
     taskContainer.appendChild(taskList);
-    taskList.insertAdjacentHTML(
-      'afterbegin',
-      `<li class="togglable"><span class="plus-sgn">+</span> Add Task</li>`
-    );
+
+    const togglable = document.createElement('li');
+    const span = document.createElement('span');
+    togglable.className = 'togglable';
+    span.className = 'plus-sgn';
+    span.textContent = '+';
+    togglable.appendChild(span);
+    togglable.innerHTML += 'Add Task';
+    taskList.appendChild(togglable);
+    addTask();
   });
 }
 

@@ -16,5 +16,4 @@ export default function generateDOM() {
   generateWeekPage();
   generateMonthPage();
   addProject();
-  addTask();
 }

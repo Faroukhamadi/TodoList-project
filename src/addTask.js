@@ -52,8 +52,6 @@ export default function addTask() {
       text.className = 'task-name-class';
       let nodeListCopy = Array.from(list);
       let names = nodeListCopy.map((el) => el.textContent);
-      console.log(nodeListCopy.map((el) => el.textContent));
-      console.log(`names after declaration${names}`);
       if (names.findIndex((name) => name === inputField.value) !== -1) {
         alert('Duplicate task names');
       } else {
@@ -86,7 +84,6 @@ export default function addTask() {
             });
             valueCopy[index].date = e.target.value;
           }
-          console.log(valueCopy);
         };
         remove.type = 'checkbox';
         remove.className = 'checkbox-round';
