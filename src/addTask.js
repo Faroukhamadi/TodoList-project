@@ -78,11 +78,20 @@ export default function addTask() {
               taskName: date.previousElementSibling.previousElementSibling.text,
               date: e.target.value,
             });
+            localStorage.setItem(
+              date.previousElementSibling.previousElementSibling.text,
+              e.target.value
+            );
+            console.log(valueCopy);
           } else {
             const index = valueCopy.findIndex((object) => {
               return object.taskName === existingValue.taskName;
             });
             valueCopy[index].date = e.target.value;
+            localStorage.setItem(
+              date.previousElementSibling.previousElementSibling.text,
+              e.target.value
+            );
           }
         };
         remove.type = 'checkbox';
@@ -90,7 +99,7 @@ export default function addTask() {
         listItemN.classList = 'togglable checkBox';
         text.textContent = inputField.value;
         tasks.push(inputField.value);
-        localStorage.setItem(`task${count}`, inputField.value);
+        localStorage.setItem(inputField.value, date.value);
         text.href = '#';
         taskList.appendChild(listItemN);
         listItemN.appendChild(text);
