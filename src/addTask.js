@@ -121,6 +121,9 @@ export default function addTask() {
               checkButtons[i].addEventListener('click', () => {
                 checkButtons[i].parentNode.remove();
                 tasks.splice(i, 1);
+                let taskName =
+                  checkButtons[i].previousElementSibling.textContent;
+                localStorage.removeItem(taskName);
               });
             }
           }
