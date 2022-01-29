@@ -66,7 +66,6 @@ export default function addTask() {
         date.value = today;
         date.min = today;
         date.max = nextYear;
-
         date.onchange = (e) => {
           const existingValue = valueCopy.find(
             ({ taskName }) =>
@@ -78,9 +77,11 @@ export default function addTask() {
               taskName: date.previousElementSibling.previousElementSibling.text,
               date: e.target.value,
             });
+            console.log(e.target.value);
+            console.log(typeof e.target.value);
             localStorage.setItem(
               date.previousElementSibling.previousElementSibling.text,
-              e.target.value
+              JSON.stringify([e.target.value, arguments[0]])
             );
             console.log(valueCopy);
           } else {
@@ -90,7 +91,7 @@ export default function addTask() {
             valueCopy[index].date = e.target.value;
             localStorage.setItem(
               date.previousElementSibling.previousElementSibling.text,
-              e.target.value
+              JSON.stringify([e.target.value, arguments[0]])
             );
           }
         };
@@ -99,14 +100,17 @@ export default function addTask() {
         listItemN.classList = 'togglable checkBox';
         text.textContent = inputField.value;
         tasks.push(inputField.value);
-        localStorage.setItem(inputField.value, date.value);
+        // localStorage.setItem(inputField.value, date.value);
+        localStorage.setItem(
+          inputField.value,
+          JSON.stringify([date.value, arguments[0]])
+        );
         text.href = '#';
         taskList.appendChild(listItemN);
         listItemN.appendChild(text);
         listItemN.appendChild(remove);
         listItemN.appendChild(date);
         taskList.appendChild(addTaskBtn);
-
         (function () {
           let checkButtons = document.querySelectorAll('.checkbox-round');
           for (let i = 0; i < checkButtons.length; i++) {
@@ -128,7 +132,6 @@ export default function addTask() {
                 break;
               }
             }
-
             if (flag === false) {
               tasks.push(checkButtons[i].parentNode.textContent);
             }

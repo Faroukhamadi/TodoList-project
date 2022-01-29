@@ -21,6 +21,6 @@ export default function generateWeekPage() {
     togglable.appendChild(span);
     togglable.innerHTML += 'Add Task';
     taskList.appendChild(togglable);
-    addTask();
+    addTask('week');
   });
 }

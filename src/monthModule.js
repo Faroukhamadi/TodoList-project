@@ -22,6 +22,6 @@ export default function generateMonthPage() {
     togglable.appendChild(span);
     togglable.innerHTML += 'Add Task';
     taskList.appendChild(togglable);
-    addTask();
+    addTask('month');
   });
 }

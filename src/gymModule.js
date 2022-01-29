@@ -21,6 +21,6 @@ export default function generateGymPage() {
     togglable.appendChild(span);
     togglable.innerHTML += 'Add Task';
     taskList.appendChild(togglable);
-    addTask();
+    addTask('gym');
   });
 }

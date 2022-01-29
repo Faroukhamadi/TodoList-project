@@ -21,7 +21,7 @@ function autoGenerateTodayPage() {
   togglable.appendChild(span);
   togglable.innerHTML += 'Add Task';
   taskList.appendChild(togglable);
-  addTask();
+  addTask('today');
 }
 
 function generateTodayPage() {
@@ -44,7 +44,7 @@ function generateTodayPage() {
     togglable.appendChild(span);
     togglable.innerHTML += 'Add Task';
     taskList.appendChild(togglable);
-    addTask();
+    addTask('today');
   });
 }
 
