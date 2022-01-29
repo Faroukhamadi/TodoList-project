@@ -1,3 +1,4 @@
+import addTask from './addTask';
 import removeChildren from './delChildren';
 
 export default function addProject() {
@@ -44,13 +45,21 @@ export default function addProject() {
           removeChildren(taskContainer);
           const title = document.createElement('h1');
           const taskList = document.createElement('ul');
-          title.innerHTML = projects[i];
+          taskList.id = 'task-list';
+
+          title.textContent = projects[i];
           taskContainer.appendChild(title);
           taskContainer.appendChild(taskList);
-          taskList.insertAdjacentHTML(
-            'afterbegin',
-            `<li class="togglable"><span class="plus-sgn">+</span> Add Task</li>`
-          );
+
+          const togglable = document.createElement('li');
+          const span = document.createElement('span');
+          togglable.className = 'togglable';
+          span.className = 'plus-sgn';
+          span.textContent = '+';
+          togglable.appendChild(span);
+          togglable.innerHTML += 'Add Task';
+          taskList.appendChild(togglable);
+          addTask(projects[i]);
         });
       }
     }
