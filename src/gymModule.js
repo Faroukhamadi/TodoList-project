@@ -1,6 +1,7 @@
 import addTask from './addTask';
 import removeChildren from './delChildren';
 import { localStorageLookup } from './storage';
+import { format, add } from 'date-fns';
 
 export default function generateGymPage() {
   const gymBtn = document.getElementById('gym-btn');
@@ -14,7 +15,7 @@ export default function generateGymPage() {
     taskContainer.appendChild(title);
     taskContainer.appendChild(taskList);
 
-    let tasks = localStorageLookup();
+    let tasks = localStorageLookup('gym');
     for (const task of tasks) {
       const date = document.createElement('input');
       const listItemN = document.createElement('li');
@@ -42,26 +43,6 @@ export default function generateGymPage() {
       listItemN.appendChild(remove);
       listItemN.appendChild(date);
     }
-
-    // const togglable = document.createElement('li');
-    // const span = document.createElement('span');
-    // togglable.className = 'togglable';
-    // span.className = 'plus-sgn';
-    // span.textContent = '+';
-    // togglable.appendChild(span);
-    // togglable.innerHTML += 'Add Task';
-    // taskList.appendChild(togglable);
-
-    const togglable = document.createElement('li');
-    const span = document.createElement('span');
-    togglable.className = 'togglable';
-    span.className = 'plus-sgn';
-    span.textContent = '+';
-    togglable.appendChild(span);
-    togglable.innerHTML += 'Add Task';
-    taskList.appendChild(togglable);
-    addTask('gym');
-
     let checkButtons = document.querySelectorAll('.checkbox-round');
     for (let i = 0; i < checkButtons.length; i++) {
       if (
@@ -75,5 +56,14 @@ export default function generateGymPage() {
         });
       }
     }
+    const togglable = document.createElement('li');
+    const span = document.createElement('span');
+    togglable.className = 'togglable';
+    span.className = 'plus-sgn';
+    span.textContent = '+';
+    togglable.appendChild(span);
+    togglable.innerHTML += 'Add Task';
+    taskList.appendChild(togglable);
+    addTask('gym');
   });
 }

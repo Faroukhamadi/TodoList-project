@@ -119,7 +119,8 @@ export default function addTask() {
                 tasks.splice(i, 1);
                 let taskName =
                   checkButtons[i].previousElementSibling.textContent;
-                localStorage.removeItem(taskName);
+                // localStorage.removeItem(taskName);
+                localStorage.removeItem(arguments[0]);
               });
             }
           }
